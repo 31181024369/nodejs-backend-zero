@@ -13,17 +13,17 @@ app.use(express.urlencoded({ extended: true })); //Parse URL-encoded bodies
 configViewEngine(app);
 
 
-app.use('/v1', webRoutes);
+app.use('/', webRoutes);
 // Create the connection to database
 
 
-connection.query(
-    'SELECT * FROM `Users` u',
-    function (err, results, fields) {
-        console.log(results); // results contains rows returned by server
+// connection.query(
+//     'SELECT * FROM `Users` u',
+//     function (err, results, fields) {
+//         console.log(results); // results contains rows returned by server
 
-    }
-)
+//     }
+// )
 
 app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`)
