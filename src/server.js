@@ -15,6 +15,7 @@ configViewEngine(app);
 
 app.use('/', webRoutes);
 // Create the connection to database
+connection();
 
 
 // connection.query(
