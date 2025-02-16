@@ -15,7 +15,18 @@ configViewEngine(app);
 
 app.use('/', webRoutes);
 // Create the connection to database
-connection();
+
+(async () => {
+    try {
+        await connection();
+        app.listen(port, hostname, () => {
+            console.log(`Backend zero app listening on port ${port}`)
+        })
+
+    } catch (error) {
+        console.log(">>>Error connect to DB: ", error)
+    }
+})()
 
 
 // connection.query(
@@ -26,6 +37,3 @@ connection();
 //     }
 // )
 
-app.listen(port, hostname, () => {
-    console.log(`Example app listening on port ${port}`)
-})
