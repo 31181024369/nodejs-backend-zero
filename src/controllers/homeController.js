@@ -11,7 +11,7 @@ const getHomePage = async (req, res) => {
     //         res.send(JSON.stringify(users));
     //     }
     // );
-    let results = [];
+    let results = await User.find({});
     console.log(">>>results:", results);
     return res.render('home.ejs', { listUsers: results });
 
