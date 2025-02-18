@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const configViewEngine = require('./config/viewEngine');
 const webRoutes = require('./routes/web');
 const apiRoutes = require('./routes/api');
@@ -9,6 +10,7 @@ const mongoose = require("mongoose");
 const app = express();
 const port = process.env.PORT || 8888;
 const hostname = process.env.HOST_NAME;
+app.use(fileUpload());
 
 app.use(express.json()); // Used to parse JSON bodies
 app.use(express.urlencoded({ extended: true })); //Parse URL-encoded bodies

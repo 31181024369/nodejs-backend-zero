@@ -83,6 +83,7 @@ const postHandleRemoveUser = async (req, res) => {
     });
     res.redirect('/');
 }
+
 module.exports = {
     getHomePage,
     getABC,
@@ -92,5 +93,6 @@ module.exports = {
     getUpdatePage,
     postUpdatePage,
     postDeletePage,
-    postHandleRemoveUser
+    postHandleRemoveUser,
+
 }
