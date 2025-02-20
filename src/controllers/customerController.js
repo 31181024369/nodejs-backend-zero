@@ -1,6 +1,7 @@
 const Customer = require("../models/customer");
 const { createCustomerService, createArrayCustomerService, getAllCustomerService, putUpdateCustomersService, deleteACustomersService, deleteArrayCustomerService } = require("../services/customerService");
 const { uploadSingleFile } = require("../services/fileService");
+
 module.exports = {
     postCreateCustomer: async (req, res) => {
         let { name, address, phone, email, description } = req.body;
@@ -48,7 +49,8 @@ module.exports = {
         let result = null;
         if (limit && page) {
 
-            result = await getAllCustomerService(limit, page, name);
+
+            result = await getAllCustomerService(limit, page, name, req.query);
         } else {
 
             result = await getAllCustomerService();
