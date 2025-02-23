@@ -2,6 +2,7 @@ const express = require('express');
 const routerAPI = express.Router();
 const { getUsersAPI, postCreateUserAPI, putUpdateUserAPI, deleteUserAPI, postUploadSingleFileApi, postUploadMultipleFilesAPI } = require('../controllers/apiController');
 const { postCreateCustomer, postCreateArrayCustomer, getAllCustomer, putUpdateCustomers, deleteACustomers, deleteArrayCustomer } = require("../controllers/customerController");
+const {postCreateProject,getAllProject}=require("../controllers/projectController");
 routerAPI.get('/', (req, res) => {
     res.send("hello word with apis")
 });
@@ -22,6 +23,8 @@ routerAPI.get('/customers', getAllCustomer);
 routerAPI.put('/customers', putUpdateCustomers);
 routerAPI.delete('/customers', deleteACustomers);
 routerAPI.delete('/customers-many', deleteArrayCustomer);
+routerAPI.post('/projects',postCreateProject);
+routerAPI.get('/projects',getAllProject);
 routerAPI.get('/info', (req, res) => {
     console.log(">>check query:", req.query);
     return res.status(200).json({
