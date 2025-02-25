@@ -36,11 +36,11 @@ app.use('/v1/api/', apiRoutes);
 //         console.log('Connected successfully to server');
 //         const db = client.db(dbName);
 
-//         // const collection = db.collection('tasks');
+//         const collection = db.collection('tasks');
 
-//         // collection.insertOne({ "name": "long sama" });
-//         // let a = await collection.findOne({ name: "long sama" });
-//         // console.log(">>>find:", a);
+//         collection.insertOne({ "name": "long sama" });
+//         let a = await collection.findOne({ name: "long sama" });
+//         console.log(">>>find:", a);
 //         app.listen(port, hostname, () => {
 //             console.log(`Backend zero app listening on port ${port}`)
 //         })

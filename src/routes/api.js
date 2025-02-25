@@ -2,7 +2,8 @@ const express = require('express');
 const routerAPI = express.Router();
 const { getUsersAPI, postCreateUserAPI, putUpdateUserAPI, deleteUserAPI, postUploadSingleFileApi, postUploadMultipleFilesAPI } = require('../controllers/apiController');
 const { postCreateCustomer, postCreateArrayCustomer, getAllCustomer, putUpdateCustomers, deleteACustomers, deleteArrayCustomer } = require("../controllers/customerController");
-const {postCreateProject,getAllProject}=require("../controllers/projectController");
+const {postCreateProject,getAllProject,updateProject,deleteProject}=require("../controllers/projectController");
+const {getAllTask,postCreateTask,updateTask,deleteTask}=require("../controllers/taskController");
 routerAPI.get('/', (req, res) => {
     res.send("hello word with apis")
 });
@@ -25,6 +26,13 @@ routerAPI.delete('/customers', deleteACustomers);
 routerAPI.delete('/customers-many', deleteArrayCustomer);
 routerAPI.post('/projects',postCreateProject);
 routerAPI.get('/projects',getAllProject);
+routerAPI.put('/projects',updateProject);
+routerAPI.delete('/projects',deleteProject);
+
+routerAPI.post('/tasks',postCreateTask);
+routerAPI.get('/tasks',getAllTask);
+routerAPI.put('/tasks',updateTask);
+routerAPI.delete('/tasks',deleteTask);
 routerAPI.get('/info', (req, res) => {
     console.log(">>check query:", req.query);
     return res.status(200).json({
